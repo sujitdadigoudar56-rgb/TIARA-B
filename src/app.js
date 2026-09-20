@@ -16,7 +16,16 @@ const siteContentRoutes = require('./modules/site-content/site-content.routes');
 
 const app = express();
 
-app.use(cors({ origin: env.clientOrigin, credentials: true }));
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      // No Origin header (curl, server-to-server, same-origin) — allow.
+      if (!origin || env.clientOrigins.includes(origin)) return callback(null, true);
+      callback(new Error(`Origin ${origin} not allowed`));
+    },
+    credentials: true,
+  })
+);
 app.use(express.json());
 app.use(cookieParser());
 app.use(attachUser);

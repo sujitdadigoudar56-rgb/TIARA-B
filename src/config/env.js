@@ -4,7 +4,11 @@ const env = {
   port: process.env.PORT || 4000,
   mongodbUri: process.env.MONGODB_URI || 'mongodb://localhost:27017/tiara',
   jwtSecret: process.env.JWT_SECRET || 'dev-secret-change-me',
-  clientOrigin: process.env.CLIENT_ORIGIN || 'http://localhost:3000',
+  // Comma-separated list, e.g. "http://localhost:3000,https://tiara-f.vercel.app".
+  clientOrigins: (process.env.CLIENT_ORIGIN || 'http://localhost:3000,https://tiara-f.vercel.app')
+    .split(',')
+    .map((s) => s.trim())
+    .filter(Boolean),
   nodeEnv: process.env.NODE_ENV || 'development',
   awsAccessKeyId: process.env.AWS_ACCESS_KEY_ID,
   awsSecretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
