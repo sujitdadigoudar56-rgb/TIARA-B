@@ -13,6 +13,7 @@ const siteContentSchema = new mongoose.Schema(
         _id: false,
         category: String,
         title: String,
+        subtitle: String,
         image: String,
       },
     ],
