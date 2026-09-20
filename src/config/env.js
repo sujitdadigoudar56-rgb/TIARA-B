@@ -5,7 +5,9 @@ const env = {
   mongodbUri: process.env.MONGODB_URI || 'mongodb://localhost:27017/tiara',
   jwtSecret: process.env.JWT_SECRET || 'dev-secret-change-me',
   // Comma-separated list, e.g. "http://localhost:3000,https://tiara-f.vercel.app".
-  clientOrigins: (process.env.CLIENT_ORIGIN || 'http://localhost:3000,https://tiara-f.vercel.app')
+  clientOrigins: (
+    process.env.CLIENT_ORIGIN || 'http://localhost:3000,http://localhost:3001,https://tiara-f.vercel.app'
+  )
     .split(',')
     .map((s) => s.trim())
     .filter(Boolean),

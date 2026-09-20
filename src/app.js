@@ -13,6 +13,7 @@ const orderRoutes = require('./modules/orders/order.routes');
 const contactRoutes = require('./modules/contact/contact.routes');
 const preorderRoutes = require('./modules/preorders/preorder.routes');
 const siteContentRoutes = require('./modules/site-content/site-content.routes');
+const adminRoutes = require('./modules/admin/admin.routes');
 
 const app = express();
 
@@ -40,6 +41,7 @@ app.use('/api/orders', orderRoutes);
 app.use('/api/contact', contactRoutes);
 app.use('/api/preorders', preorderRoutes);
 app.use('/api/site-content', siteContentRoutes);
+app.use('/api/admin', adminRoutes);
 
 app.use(errorHandler);
 

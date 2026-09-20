@@ -21,4 +21,10 @@ function requireAuth(req, res, next) {
   next();
 }
 
-module.exports = { attachUser, requireAuth };
+function requireAdmin(req, res, next) {
+  if (!req.user) return res.status(401).json({ message: 'Sign in required' });
+  if (req.user.role !== 'admin') return res.status(403).json({ message: 'Admin access required' });
+  next();
+}
+
+module.exports = { attachUser, requireAuth, requireAdmin };

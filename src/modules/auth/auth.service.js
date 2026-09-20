@@ -37,7 +37,7 @@ function verifyToken(token) {
 }
 
 function toPublicUser(user) {
-  return { id: user._id, name: user.name, email: user.email, phone: user.phone };
+  return { id: user._id, name: user.name, email: user.email, phone: user.phone, role: user.role };
 }
 
 module.exports = { register, login, signToken, verifyToken, toPublicUser };
