@@ -9,6 +9,7 @@ const productSchema = new mongoose.Schema(
     compareAtPrice: { type: Number, default: null },
     images: { type: [String], default: [] },
     sizes: { type: [String], default: [] },
+    color: { type: String, default: '' },
     category: { type: String, required: true, trim: true },
     isBestSeller: { type: Boolean, default: false },
     stock: { type: Number, default: 100 },
