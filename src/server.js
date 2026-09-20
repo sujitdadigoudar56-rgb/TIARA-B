@@ -4,7 +4,7 @@ const env = require('./config/env');
 
 async function start() {
   await connectDB();
-  app.listen(env.port, () => console.log(`[server] listening on http://localhost:${env.port}`));
+  app.listen(env.port, () => console.log(`[server] TIARA backend is healthy and listening on port ${env.port}`));
 }
 
 start().catch((err) => {

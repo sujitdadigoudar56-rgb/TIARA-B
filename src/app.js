@@ -22,7 +22,7 @@ app.use(cookieParser());
 app.use(attachUser);
 app.use(attachCartId);
 
-app.get('/api/health', (req, res) => res.json({ ok: true }));
+app.get('/api/health', (req, res) => res.json({ ok: true, status: 'healthy', message: 'TIARA backend is up and running' }));
 
 app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
